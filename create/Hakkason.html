@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../style/style_create.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <title>ハッカソン作成物</title>
+</head>
+<body id='top'>
+
+    <!---------------------------------------------------------------------------------
+        NAVI
+    ---------------------------------------------------------------------------------->
+    <nav class="container py-4 navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="Hakkason"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link text-dark" href="#first">はじめに</a>
+                <a class="nav-link text-dark" href="#date">プログラムで使用するデータとデータ記述言語</a>
+                <a class="nav-link text-dark" href="#sekkei">プログラムの設計と実装</a>
+                <a class="nav-link text-dark" href="#owari">終わりに</a>
+                <a class="nav-link text-dark" href="#end">感想</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-4" id="first">
+        <h2>はじめに</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-auto">
+                </div>
+                <div class="col-sm">
+                    <p>
+                    このアプリケーション「銭カメ帳」はハッカソン出場時に大学の同期と協力し作成したものである。
+                    <br>本プログラムは、ユーザーが収入や支出を簡単に記録し、分析できることを目的としている。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container py-4" id="date">
+        <h2>プログラムで使用するデータとデータ記述言語</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-auto">
+                </div>
+                <div class="col-sm">
+                    <p>
+                        本プログラムでは、ユーザーが入力した収支データを管理する。データは以下の形式で扱われる:
+                        <br>収入/支出データ: JSON形式で、収入や支出の項目名、金額、日付、タイプ（固定費、変動費、収入）などを記録する。
+                        <br>認証データ: JWT（JSON Web Token）形式で、ユーザー認証を行う。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4" id="sekkei">
+        <h2>プログラムの設計と実装</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-auto">
+                </div>
+                <div class="col-sm">
+                    <p>
+                        3.1 実装した機能
+                        <br>ユーザー登録: 新規ユーザーがアカウントを作成する機能。
+                        <br><img src="../img/hakkason2.png"width="100%" height="100%"/>
+                        <br>ユーザーログイン: 既存ユーザーがアカウントにログインする機能。
+                        <br><img src="../img/hakkason1.png"width="100%" height="100%"/>
+                        <br>収支追加: ユーザーが収入や支出を追加する機能。
+                        <br><img src="../img/hakkason3.png"width="100%" height="100%"/>
+                        <br>
+                        <br>データ表示: 記録された収支データを表形式で表示する機能。
+                        <br>データ分析: 記録されたデータを基に、収支のグラフを表示する機能。
+                        <br><img src="../img/hakkason4.png"width="100%" height="100%"/>
+                        <br>
+                        <br>
+                        3.2 システムが利用するリソース
+                            <br>名称: ユーザー情報データベース
+                            <br>概要: ユーザーの認証情報（ユーザー名、パスワード）を保存する。
+                            <br>利用目的: ユーザー認証のため。
+                            <br>形式: PostgreSQL
+                            <br>
+                            <br>名称: 収支データデータベース
+                            <br>概要: ユーザーの収入や支出のデータを保存する。
+                            <br>利用目的: 収支管理のため。
+                            <br>形式: PostgreSQL
+                        <br>
+                        <br>3.3 プログラムの構造
+                        <br>プログラムは以下のファイルで構成されている。
+                        <br>app.js: 　クライアントサイドのJavaScriptファイル。ユーザーインターフェースの制御を行う。
+                        <br>login.js:　 ログインページ用のJavaScriptファイル。
+                        <br>register.js: 　新規登録ページ用のJavaScriptファイル。
+                        <br>server.js: 　サーバーサイドのNode.jsファイル。ユーザー認証やデータベースとの通信を管理する。
+                        <br>public/: 　静的ファイル（HTML、CSS、画像など）を格納するディレクトリ。
+                        <br>
+                        <br>3.4 工夫点:
+                        <br>ユーザーインターフェースの工夫:　 Bootstrapを用いてレスポンシブなデザインを実現。
+                        <br>エラーハンドリング: 　クライアントおよびサーバーサイドで適切なエラーハンドリングを行い、ユーザーに分かりやすいメッセージを表示。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container py-4" id="owari">
+        <h2>終わりに</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-auto">
+                </div>
+                <div class="col-sm">
+                    <br>今回はハッカソンに出場するために作成したパーソナルファイナンス管理アプリ「銭カメ帳」の設計と実装について説明した。アプリの主な機能は、ユーザーが収入や支出を簡単に記録し、視覚的に分析することを可能にするものである。開発を通じて、ユーザーインターフェースの設計やデータベースの構築、セキュアな認証機能の実装といった多岐にわたる技術を学ぶことができた。
+                    <br>今後の展望として、以下の点を改善・追加する予定である。
+                    <br>自動収支予測機能:  　ユーザーの過去の収支データを基に、将来の収支を予測する機能を追加する。
+                    <br>他の金融サービスとの連携:  　銀行口座やクレジットカードのデータと連携し、自動的に収支を記録できるようにする。
+                    <br>ユーザーインターフェースの改善: 　 特にモバイルデバイスでの操作性を向上させ、より直感的な操作を実現する。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4" id="end">
+        <h2>感想</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md-auto">
+                </div>
+                <div class="col-sm">
+                    <br>今回のハッカソン参加は非常に充実した経験となった。特に、限られた時間の中でチームメンバーと協力してプロジェクトを進めることは、大きな達成感を得ると同時に、多くのスキルを向上させる機会となった。
+                    <br>具体的には、以下の点が印象的であった。
+                    <br>チームワーク:  　各メンバーが自分の強みを活かし、役割分担を行うことで効率的にプロジェクトを進めることができた。コミュニケーションの重要性を再認識することができた。
+                    <br>技術的挑戦: 　 初めて取り組む技術やライブラリを短期間で習得し、実装する必要があったため、自己学習能力と柔軟な思考が求められた。
+                    <br>ユーザビリティの重要性:　  開発中、ユーザーが実際に使いやすいと感じるインターフェースや機能を考えることの難しさと重要性を学んだ。フィードバックを元に迅速に改善を行うことの大切さを実感した。
+                    <br>
+                    <br>今回の経験を活かして、今後も新たなチャレンジに積極的に取り組んでいきたい。
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "button">
+    <button type="button" onclick="history.back()">戻る</button>
+    </div>
+    <!--------------------------------------------------------------------------------- BACK TO TOP---------------------------------------------------------------------------------->
+    <div class="text-center py-8">
+        <a href="#top" class="text-muted">
+            <i class="fas fa-angle-up fa-3x" style="color:#686868;"></i>
+        </a>
+    </div>
+
+    <!--------------------------------------------------------------------------------- FOOTER---------------------------------------------------------------------------------->
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <!--------------------------------------------------------------------------------- SCRIPTS---------------------------------------------------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+        });
+        </script>
+</body>
+
+</html>

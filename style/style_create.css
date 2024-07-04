@@ -1,0 +1,65 @@
+/* スクロール動作 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ボディの基本設定 */
+body {
+    line-height: 1.6;
+    font-size: 1.1em;
+    font-family: "Lato", "Noto Sans JP", Helvetica, "游ゴシック", "Yu Gothic", YuGothic, HiraKakuProN-W3, "メイリオ", Meiryo, sans-serif;
+}
+
+
+/* ボタンセンタリング */
+.button {
+    text-align: center;
+}
+
+.button button {
+    background-color: #353638;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0; /* マージンを調整してボタン間のスペースを確保 */
+    cursor: pointer;
+}
+
+/* ナビゲーション */
+.navbar a.nav-link:hover {
+    color: #333;
+    border-bottom: 2px solid #333;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.navbar-nav .nav-link.active {
+    color: #007bff; /* プライマリーカラー */
+    font-weight: bold;
+}
+
+/* 見出し */
+h2 {
+    border-bottom: 3px solid #3e4042; /* 強調色 */
+    color: #333;
+    font-size: 20px;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* フッター */
+footer .container {
+    border-top: 2px solid rgba(144, 130, 109, 0.5);
+    color: #666;
+    padding: 20px 0;
+    font-size: 12px;
+    margin-top: 30px;
+    text-align: center;
+}
+
